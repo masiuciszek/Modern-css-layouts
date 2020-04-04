@@ -6,6 +6,8 @@ export interface IUser extends Document {
   password: string;
   role: string;
   created_at: Date;
+  generateAuthToken: () => Promise<string>;
+  comparePassword: (password:string) => Promise<boolean>
 }
 
 export interface IDish extends Document {

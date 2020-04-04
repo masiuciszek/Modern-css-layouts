@@ -5,6 +5,7 @@ import { router as userRouter } from './routes/user';
 import { router as dishRouter } from './routes/dish';
 import 'colors';
 import { connectDb } from './config/db';
+import errorHandler from './middleware/errorHandler';
 
 const app: Application = express();
 const port = process.env.PORT || 5000;
@@ -15,6 +16,7 @@ app.use(morgan('dev'));
 app.use('/api/auth', authRouter);
 app.use('/api/users', userRouter);
 app.use('/api/dishes', dishRouter);
+app.use(errorHandler);
 
 app.listen(port, () => {
   console.log(`port is running on port ${port}`.bgMagenta.white.bold);
