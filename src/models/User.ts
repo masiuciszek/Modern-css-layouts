@@ -31,6 +31,14 @@ const UserSchema = new Schema<IUser>({
     type: Date,
     default: Date.now,
   },
+  tokens: [
+    {
+      token: {
+        type: String,
+        required: true,
+      },
+    },
+  ],
 });
 
 UserSchema.pre<IUser>('save', async function(next: NextFunction) {
@@ -48,7 +56,7 @@ UserSchema.methods.generateAuthToken = async function(): Promise<string> {
   const token = jwt.sign({ id: user._id, role: user.role }, 'secret', {
     expiresIn: 60 * 180,
   });
-
+  user.tokens = user.tokens.concat({ token });
   await user.save();
   return token;
 };

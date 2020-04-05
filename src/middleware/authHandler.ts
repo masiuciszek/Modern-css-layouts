@@ -29,7 +29,7 @@ export const authHandler = asyncHandler(
     const decoded: any = jwt.verify(token, 'secret');
     // console.log(decoded);
 
-    const user = await User.findById(decoded.id);
+    const user = await User.findOne({ _id: decoded.id, 'tokens.token': token });
 
     if (!user) {
       return next(new ErrorResponse('Authentication error', 400));

@@ -1,20 +1,26 @@
 import { Document } from 'mongoose';
 
+export interface IToken {
+  token: string;
+}
 export interface IUser extends Document {
   username: string;
   email: string;
   password: string;
   role: string;
   created_at: Date;
+  // avatar: Buffer | undefined;
+  tokens: IToken[];
   generateAuthToken: () => Promise<string>;
-  comparePassword: (password:string) => Promise<boolean>
+  comparePassword: (password: string) => Promise<boolean>;
 }
 
 export interface IDish extends Document {
   title: string;
-  price: number;
   ingredients: string[];
-  img: Buffer;
-  owner: IUser['_id'];
+  slug: string;
+  category: string;
+  img: Buffer | undefined;
+  owner: IUser;
   created_at: Date;
 }
