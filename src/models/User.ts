@@ -5,40 +5,50 @@ import bcrypt from 'bcryptjs';
 import { NextFunction } from 'express';
 import { IUser } from './Documents';
 
-const UserSchema = new Schema<IUser>({
-  username: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-  email: {
-    type: String,
-    required: true,
-    trim: true,
-    unique: true,
-  },
-  password: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-  role: {
-    type: String,
-    enum: ['user', 'admin'],
-    default: 'user',
-  },
-  created_at: {
-    type: Date,
-    default: Date.now,
-  },
-  tokens: [
-    {
-      token: {
-        type: String,
-        required: true,
-      },
+const UserSchema = new Schema<IUser>(
+  {
+    username: {
+      type: String,
+      required: true,
+      trim: true,
     },
-  ],
+    email: {
+      type: String,
+      required: true,
+      trim: true,
+      unique: true,
+    },
+    password: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    role: {
+      type: String,
+      enum: ['user', 'admin'],
+      default: 'user',
+    },
+    created_at: {
+      type: Date,
+      default: Date.now,
+    },
+    tokens: [
+      {
+        token: {
+          type: String,
+          required: true,
+        },
+      },
+    ],
+  },
+  { toJSON: { virtuals: true }, toObject: { virtuals: true } }
+);
+
+UserSchema.virtual('dishes', {
+  red: 'Dish',
+  localfield: '_id',
+  foreignField: 'owner',
+  justOne: false,
 });
 
 UserSchema.pre<IUser>('save', async function(next: NextFunction) {

@@ -18,11 +18,12 @@ const DishSchema = new Schema<IDish>({
   ],
   img: {
     type: Buffer,
-    required: true,
+
     trim: true,
   },
   slug: String,
   category: {
+    type: String,
     enum: ['main', 'starter', 'snack', 'dessert'],
     default: 'main',
   },
