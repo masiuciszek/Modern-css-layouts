@@ -34,11 +34,53 @@ export const addNewDish = asyncHandler(
   }
 );
 
-export const editDish = asyncHandler(
+export const getDishById = asyncHandler(
   async (req: IAuthRequest, res: Response, next: NextFunction) => {
-    res.send();
+    let dish = await Dish.findOne({
+      _id: req.params.id,
+      owner: req.user._id,
+    });
+
+    if (!dish) {
+      return next(new ErrorResponse('No dish found', 400));
+    }
+
+    dish = await Dish.findById(req.params.id).populate({
+      path: 'owner',
+      select: 'username',
+    });
+
+    res.status(200).json({ success: true, data: dish });
   }
 );
+
+export const editDish = asyncHandler(
+  async (req: IAuthRequest, res: Response, next: NextFunction) => {
+    const dish = await Dish.findOne({
+      _id: req.params.id,
+      owner: req.user._id,
+    });
+
+    if (!dish) {
+      return next(new ErrorResponse('No dish found', 400));
+    }
+
+    const updatedDish = await Dish.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+    }).populate({
+      path: 'owner',
+      select: 'username',
+    });
+
+    await updatedDish?.save();
+
+    res
+      .status(201)
+      .json({ success: true, data: updatedDish, msg: 'dish updated!' });
+  }
+);
+
 export const uploadPhoto = asyncHandler(
   async (req: IAuthRequest, res: Response, next: NextFunction) => {
     res.send();
@@ -47,6 +89,16 @@ export const uploadPhoto = asyncHandler(
 
 export const removeDish = asyncHandler(
   async (req: IAuthRequest, res: Response, next: NextFunction) => {
-    res.send();
+    const dish = await Dish.findOne({
+      _id: req.params.id,
+      owner: req.user._id,
+    });
+    if (!dish) {
+      return next(new ErrorResponse('No dish found', 400));
+    }
+
+    await Dish.findByIdAndDelete(req.params.id);
+
+    res.status(200).json({ success: true, data: {}, msg: 'data deleted' });
   }
 );
