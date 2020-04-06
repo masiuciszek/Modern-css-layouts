@@ -1,25 +1,27 @@
+/* eslint-disable import/extensions */
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Switch } from 'react-router-dom';
+import axios from 'axios';
+import HomePage from './pages/Home';
+import Layout from './components/layout/Layout';
 
 function App() {
+  const test = async () => {
+    const res = await axios.get('/api/dishes');
+    const { data } = res;
+    console.log(data);
+  };
+
+
+  test();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Layout>
+        <Switch>
+          <Route path="/" exact component={HomePage} />
+        </Switch>
+      </Layout>
+    </>
   );
 }
 
