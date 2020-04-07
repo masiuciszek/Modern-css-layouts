@@ -2,6 +2,7 @@
 export interface IAuth{
   _id: string;
   role: string;
+  token: string;
   username: string;
   email: string;
   password: string;
@@ -18,6 +19,7 @@ export interface IAuthState{
   isLoading: boolean;
   auth: IAuth | null;
   token: string | null;
+  isLoggedIn: boolean;
   errors: null | Record<string, any>;
 }
 
@@ -41,9 +43,13 @@ interface IRegisterSuccessAction {
   payload: IAuth;
 }
 
+interface ILogoutSuccessAction {
+  type: AuthActionTypes.LOGOUT_SUCCESS;
+}
+
 interface IErrorAction {
   type: AuthActionTypes.ERROR;
   payload: IAuthError;
 }
 
-export type AuthTypesReducer = ILoginSuccessAction | IRegisterSuccessAction | IErrorAction
+export type AuthTypesReducer = ILoginSuccessAction | IRegisterSuccessAction | IErrorAction | ILogoutSuccessAction
