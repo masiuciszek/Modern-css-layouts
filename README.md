@@ -1,7 +1,7 @@
-# Your food list
+# Food Truck
 
 Fullstack application where you have authentication based on a user or a admin role.
-You should login and add your own dishes where you can save your own food dishes.
+Admin should add and customize own dished and users should be able to buy dished.
 
 ### Tools
 
@@ -12,4 +12,5 @@ You should login and add your own dishes where you can save your own food dishes
 * Mongoose
 * React
 * Styled Components
+* Stripe API
 
