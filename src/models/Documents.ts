@@ -21,6 +21,7 @@ export interface IDish extends Document {
   slug: string;
   category: string;
   img: Buffer | undefined;
+  price: number;
   owner: IUser;
   created_at: Date;
 }

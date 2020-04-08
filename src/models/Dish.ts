@@ -18,7 +18,6 @@ const DishSchema = new Schema<IDish>({
   ],
   img: {
     type: Buffer,
-
     trim: true,
   },
   slug: String,
@@ -26,6 +25,10 @@ const DishSchema = new Schema<IDish>({
     type: String,
     enum: ['main', 'starter', 'snack', 'dessert'],
     default: 'main',
+  },
+  price: {
+    type: Number,
+    required: true,
   },
   owner: {
     type: Schema.Types.ObjectId,
@@ -38,7 +41,9 @@ const DishSchema = new Schema<IDish>({
   },
 });
 
-DishSchema.pre<IDish>('save', async function(next: NextFunction) {
+DishSchema.pre<IDish>('save', async function (
+  next: NextFunction
+): Promise<void> {
   this.slug = slugify(this.title, { lower: true, replacement: '-' });
   next();
 });

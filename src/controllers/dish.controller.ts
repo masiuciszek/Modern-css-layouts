@@ -9,7 +9,7 @@ export const getAllDishes = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
     let dishes = await Dish.find().populate({
       path: 'owner',
-      select: 'username -_id',
+      select: 'username',
     });
 
     if (!dishes) {
@@ -28,7 +28,7 @@ export const addNewDish = asyncHandler(
   async (req: IAuthRequest, res: Response, next: NextFunction) => {
     const newDish = await Dish.create({
       ...req.body,
-      owner: req.user._id,
+      owner: req.user.id,
     });
     res.status(200).json({ success: true, data: newDish });
   }
