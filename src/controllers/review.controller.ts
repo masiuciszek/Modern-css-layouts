@@ -22,9 +22,6 @@ export const getAllReview = asyncHandler(
 
 export const addANewReview = asyncHandler(
   async (req: IAuthRequest, res: Response, next: NextFunction) => {
-    // req.body.author = req.user._id;
-    // req.body.dish = req.params.dishid;
-    // const newReview = await Review.create(req.body);
     const newReview = await Review.create({
       ...req.body,
       author: req.user._id,
@@ -32,6 +29,14 @@ export const addANewReview = asyncHandler(
     });
     await newReview.save();
 
+    res
+      .status(201)
+      .json({ success: true, msg: 'review created', data: newReview });
+  }
+);
+
+export const editReview = asyncHandler(
+  async (req: IAuthRequest, res: Response, next: NextFunction) => {
     res
       .status(201)
       .json({ success: true, msg: 'review created', data: newReview });
