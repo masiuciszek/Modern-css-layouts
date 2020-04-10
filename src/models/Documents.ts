@@ -25,3 +25,11 @@ export interface IDish extends Document {
   owner: IUser;
   created_at: Date;
 }
+
+export interface IReview extends Document {
+  dish: IDish;
+  author: IUser;
+  text: string;
+  rating: number;
+  created_at: Date;
+}

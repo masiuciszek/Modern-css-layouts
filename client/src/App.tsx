@@ -10,6 +10,7 @@ function App() {
   return (
     <>
       <Layout>
+
         <AppContainer>
           <Switch>
             <Route path="/" exact component={HomePage} />

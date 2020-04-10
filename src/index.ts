@@ -1,8 +1,10 @@
+/* eslint-disable import/no-unresolved */
 import express, { Application } from 'express';
 import morgan from 'morgan';
 import { router as authRouter } from './routes/auth';
 import { router as userRouter } from './routes/user';
 import { router as dishRouter } from './routes/dish';
+import { router as reviewRouter } from './routes/review';
 import 'colors';
 import { connectDb } from './config/db';
 import errorHandler from './middleware/errorHandler';
@@ -16,6 +18,7 @@ app.use(morgan('dev'));
 app.use('/api/auth', authRouter);
 app.use('/api/users', userRouter);
 app.use('/api/dishes', dishRouter);
+app.use('/api/review', reviewRouter);
 app.use(errorHandler);
 
 app.listen(port, () => {
