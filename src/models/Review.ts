@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import mongoose, { Schema } from 'mongoose';
 import { IReview } from './Documents';
 
@@ -20,6 +21,7 @@ const ReviewSchema = new Schema<IReview>({
     type: Number,
     min: 1,
     max: 5,
+    required: true,
   },
   created_at: {
     type: Date,

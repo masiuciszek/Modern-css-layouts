@@ -33,3 +33,9 @@ export interface IReview extends Document {
   rating: number;
   created_at: Date;
 }
+
+export interface IOrder extends Document {
+  products: IDish[];
+  owner: IUser;
+  created_at: Date;
+}
