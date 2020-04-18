@@ -1,8 +1,6 @@
 /* eslint-disable import/extensions */
 import React from 'react';
-
 import { AppContainer } from './components/layout/Wrapper';
-import HomePage from './pages/Home';
 import Layout from './components/layout/Layout';
 import Router from './components/route/Router';
 

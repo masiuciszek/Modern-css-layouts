@@ -1,9 +1,9 @@
 import styled from 'styled-components';
+import { FlexStyles } from '../styled/GlobalStyles';
 
 
 export const AppContainer = styled.div`
-  /* TODO: DELETE */
-    border: 2px solid red;
+
     margin: 2rem auto;
     min-height: 60vh;
     padding: 1rem;
@@ -24,10 +24,11 @@ export const AppContainer = styled.div`
 
 
 export const TwoColGrid = styled.div`
-  border: 2px solid green;
-  /* TODO: DELETE */
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(2,1fr);
-  grid-template-rows: auto;
+    ${FlexStyles}
+  @media(min-width:1000px){
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: auto;
+  }
 `;

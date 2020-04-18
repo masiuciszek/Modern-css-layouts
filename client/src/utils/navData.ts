@@ -17,13 +17,10 @@ export const navData: INavData[] = [
     path: '/contact',
     text: 'contact',
   },
-  {
-    path: '/register',
-    text: 'register',
-  },
+
   {
     path: '/auth',
-    text: 'login',
+    text: 'login/register',
   },
 
 ];
