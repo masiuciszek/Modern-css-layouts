@@ -28,8 +28,8 @@ const Register: React.FC<Props> = () => {
   return (
     <AuthWrapper>
       <Form onSubmit={handleSubmit}>
-        <FormGroup error={errors && errors.usernameError}>
-          <FormLabel>
+        <FormGroup>
+          <FormLabel error={errors && errors.usernameError}>
             <span>username</span>
             <Input type="text" name="username" onChange={handleChange} value={username} placeholder="username" />
             {errors && errors.usernameError && (
@@ -42,8 +42,8 @@ const Register: React.FC<Props> = () => {
           </FormLabel>
         </FormGroup>
 
-        <FormGroup error={errors && errors.emailError}>
-          <FormLabel>
+        <FormGroup>
+          <FormLabel error={errors && errors.emailError}>
             <span>Email</span>
             <Input type="email" placeholder="email" name="email" value={email} onChange={handleChange} />
             {errors && errors.emailError && (
@@ -56,8 +56,8 @@ const Register: React.FC<Props> = () => {
           </FormLabel>
         </FormGroup>
 
-        <FormGroup error={errors && errors.passwordError}>
-          <FormLabel>
+        <FormGroup>
+          <FormLabel error={errors && errors.passwordError}>
             <span>Password</span>
             <Input type="password" placeholder="password" name="password" value={password} onChange={handleChange} />
             {errors && errors.passwordError && (

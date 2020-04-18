@@ -31,8 +31,8 @@ const Login: React.FC<Props> = () => {
   return (
     <AuthWrapper>
       <Form onSubmit={handleSubmit} noValidate>
-        <FormGroup error={errors && errors.emailError}>
-          <FormLabel>
+        <FormGroup>
+          <FormLabel error={errors && errors.emailError}>
             <span>Email</span>
             <Input type="email" placeholder="email" name="email" value={email} onChange={handleChange} />
             {errors && errors.emailError && (
@@ -46,8 +46,8 @@ const Login: React.FC<Props> = () => {
         </FormGroup>
 
 
-        <FormGroup error={errors && errors.passwordError}>
-          <FormLabel>
+        <FormGroup>
+          <FormLabel error={errors && errors.passwordError}>
             <span>Password</span>
             <Input type="password" placeholder="password" name="password" value={password} onChange={handleChange} />
             {errors && errors.passwordError && (

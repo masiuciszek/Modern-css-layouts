@@ -11,14 +11,24 @@ export const Form = styled.form`
 
   width: 100%;
 `;
-export const FormGroup = styled.div<IForm>`
+export const FormGroup = styled.div`
   ${FlexStyles};
+
+  width: 80%;
   width: 100%;
 `;
-export const FormLabel = styled.label`
+
+
+export const FormLabel = styled.label<IForm>`
   ${FlexStyles}
-  width: 80%;
+  background: ${({ theme, error }) => error && theme.colors.danger};
+  border: 2px solid  ${({ theme, error }) => (error ? theme.colors.primary : 0)};
+  box-shadow: ${({ theme, error }) => error && theme.shadow.lightShadow};
+  margin: ${({ error }) => error && '1rem 0'};
+  padding: .5rem;
+  width: 90%;
   span{
+    color: ${({ theme, error }) => (error ? theme.colors.white : theme.colors.primary)};
     font-size: 1.2rem;
     margin-right:auto;
     padding: .5rem 0;
@@ -44,5 +54,6 @@ export const Input = styled.input`
 
 
 export const ErrorMessage = styled.small`
-
+  color: ${({ theme }) => theme.colors.white};
+  font-size: 1.2rem;
 `;

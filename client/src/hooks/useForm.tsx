@@ -17,19 +17,19 @@ export default (callback: Function, validate: Function) => {
   };
 
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    setErrors(validate(errors));
+    setErrors(validate(formData));
 
     setIsSubmitting(true);
     callback();
 
 
-    setFormData({
-      email: '',
-      password: '',
-      username: '',
-    });
+    // setFormData({
+    //   email: '',
+    //   password: '',
+    //   username: '',
+    // });
   };
 
   React.useEffect(() => {
