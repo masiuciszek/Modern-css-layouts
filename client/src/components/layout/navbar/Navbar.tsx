@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 import * as React from 'react';
 import NavList from './NavList';
 import { StyledNav } from './Styled.nav';

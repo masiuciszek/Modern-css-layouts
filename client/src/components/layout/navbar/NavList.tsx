@@ -10,13 +10,9 @@ const NavList: React.FC<Props> = () => (
   <StyledNavList>
     {navData.map((item) => (
       <li key={item.text}>
-
         <StyledLink to={item.path}>
-
           {item.text}
-
         </StyledLink>
-
       </li>
     ))}
   </StyledNavList>

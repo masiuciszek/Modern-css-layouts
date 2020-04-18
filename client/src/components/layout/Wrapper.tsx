@@ -23,7 +23,11 @@ export const AppContainer = styled.div`
 `;
 
 
-export const AppWrapper = styled.div`
-/* TODO: DELETE */
-  border: 2px solid blue;
+export const TwoColGrid = styled.div`
+  border: 2px solid green;
+  /* TODO: DELETE */
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(2,1fr);
+  grid-template-rows: auto;
 `;

@@ -1,6 +1,7 @@
+/* eslint-disable import/extensions */
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { FadeDown } from '../../../utils/animations';
+import { FadeDown, FadeInDown } from '../../../utils/animations';
 
 
 export const StyledNav = styled.nav`
@@ -16,9 +17,11 @@ export const StyledNav = styled.nav`
   z-index:1;
   &:hover{
     ul{
-      display: flex;
+      animation: ${FadeInDown} 300ms all;
+      display:flex;
     }
   }
+
 `;
 
 export const StyledNavList = styled.ul`
@@ -37,6 +40,10 @@ export const StyledNavList = styled.ul`
     li{
       padding: .5rem;
     }
+  }
+  &:not(:hover){
+    opacity:0;
+    transition:opacity 2000ms;
   }
 `;
 
@@ -62,5 +69,6 @@ export const StyledLink = styled(Link)`
    &:hover{
     background: ${({ theme }) => theme.colors.white};
     color: ${({ theme }) => theme.colors.primary};
+
    }
 `;

@@ -52,4 +52,8 @@ interface IErrorAction {
   payload: IAuthError;
 }
 
-export type AuthTypesReducer = ILoginSuccessAction | IRegisterSuccessAction | IErrorAction | ILogoutSuccessAction
+export type AuthTypesReducer =
+ILoginSuccessAction |
+IRegisterSuccessAction|
+IErrorAction |
+ILogoutSuccessAction

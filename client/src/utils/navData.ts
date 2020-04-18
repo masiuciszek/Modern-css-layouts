@@ -22,7 +22,7 @@ export const navData: INavData[] = [
     text: 'register',
   },
   {
-    path: '/login',
+    path: '/auth',
     text: 'login',
   },
 
