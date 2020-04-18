@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 import * as React from 'react';
 import { TwoColGrid } from '../components/layout/Wrapper';
 import Login from '../components/auth/Login';

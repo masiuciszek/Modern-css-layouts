@@ -2,13 +2,16 @@
 import styled from 'styled-components';
 import { FlexStyles } from '../styled/GlobalStyles';
 
+interface IForm {
+  error: boolean;
+}
 
 export const Form = styled.form`
   ${FlexStyles};
 
   width: 100%;
 `;
-export const FormGroup = styled.div`
+export const FormGroup = styled.div<IForm>`
   ${FlexStyles};
   width: 100%;
 `;
@@ -37,4 +40,9 @@ export const Input = styled.input`
     box-shadow: ${(props) => props.theme.shadow.darkShadow};
     width: 90%;
   }
+`;
+
+
+export const ErrorMessage = styled.small`
+
 `;

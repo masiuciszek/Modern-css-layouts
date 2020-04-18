@@ -1,32 +1,14 @@
 /* eslint-disable @typescript-eslint/interface-name-prefix */
-import { useState } from 'react';
+import * as React from 'react';
 
-export interface ILoginData {
-  email: string;
-  password: string;
-}
-export interface IRegisterData {
-  username: string;
-  email: string;
-  password: string;
-}
-
-export interface IFormData{
-  username: string;
-  email: string;
-  password: string;
-}
-
-export default (
-  callback: Function, validate: Function,
-) => {
-  const [formData, setFormData] = useState<IFormData>({
+export default (callback: Function, validate: Function) => {
+  const [formData, setFormData] = React.useState<IFormData>({
     email: '',
     password: '',
     username: '',
   });
-  const [errors, setErrors] = useState({});
-  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [errors, setErrors] = React.useState<IErrors | Record<string, any> >({});
+  const [isSubmitting, setIsSubmitting] = React.useState<boolean>(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
@@ -37,10 +19,12 @@ export default (
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setErrors(validate(errors));
+
+    setIsSubmitting(true);
     callback();
-    validate();
-    // TODO: DELETE
-    console.log(formData);
+
+
     setFormData({
       email: '',
       password: '',
@@ -48,9 +32,17 @@ export default (
     });
   };
 
+  React.useEffect(() => {
+    if (Object.keys(errors).length === 0 && isSubmitting) {
+      callback();
+    }
+  }, [errors]);
+
+
   return {
     handleChange,
     handleSubmit,
+    errors,
     formData,
   };
 };

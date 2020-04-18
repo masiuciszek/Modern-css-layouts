@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 import styled from 'styled-components';
 import { FlexStyles } from '../styled/GlobalStyles';
 
