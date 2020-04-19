@@ -27,9 +27,9 @@ Admin should add and customize own dished and users should be able to leave revi
 
 ### auth
 
-* /api/users/auth/login = login user/admin // **public**
-* /api/users/auth/logout = logout // **private**
-* /api/users/auth/logout_all = logout All sessions // **private**
+* /api/users/auth/login  // **public** POST
+* /api/users/auth/logout  // **private** POST
+* /api/users/auth/logout_all  // **private** POST  *logout all sessions*
 
 ### reviews
 

@@ -10,7 +10,7 @@ import { IAuthRequest } from '../utils/types'
  * @method GET
  * @access public
  */
-//
+
 export const getAllUsers = asyncHandler(
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     const users = await User.find().select('-password -tokens')

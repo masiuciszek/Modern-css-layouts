@@ -21,6 +21,10 @@ export const errorHandler = (
     const message = 'Auth Error'
     error = new ErrorResponse(message, 404)
   }
+  if (err.name === 'TokenExpiredError') {
+    const message = 'session expired'
+    error = new ErrorResponse(message, 400)
+  }
 
   res
     .status(error.statusCode || 500)
