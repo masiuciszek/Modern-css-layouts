@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Document } from 'mongoose';
 
 export interface IToken {
@@ -15,19 +16,19 @@ export interface IUser extends Document {
   comparePassword: (password: string) => Promise<boolean>;
 }
 
-export interface IDish extends Document {
+export interface IStore extends Document {
   title: string;
-  ingredients: string[];
   slug: string;
+  tags: string[];
   category: string;
   img: Buffer | undefined;
-  price: number;
+  address: string;
   owner: IUser;
   created_at: Date;
 }
 
 export interface IReview extends Document {
-  dish: IDish;
+  store: IStore;
   author: IUser;
   text: string;
   rating: number;
@@ -35,7 +36,7 @@ export interface IReview extends Document {
 }
 
 export interface IOrder extends Document {
-  products: IDish[];
+  products: IStore[];
   owner: IUser;
   created_at: Date;
 }

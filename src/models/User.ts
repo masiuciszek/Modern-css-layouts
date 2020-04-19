@@ -1,9 +1,10 @@
 /* eslint-disable import/no-unresolved */
-import mongoose, { Schema } from 'mongoose';
-import jwt from 'jsonwebtoken';
-import bcrypt from 'bcryptjs';
-import { NextFunction } from 'express';
-import { IUser } from './Documents';
+import mongoose, { Schema } from 'mongoose'
+import jwt from 'jsonwebtoken'
+import bcrypt from 'bcryptjs'
+import { NextFunction } from 'express'
+import { IUser } from './Documents'
+import Store from './Store'
 
 const UserSchema = new Schema<IUser>(
   {
@@ -22,6 +23,7 @@ const UserSchema = new Schema<IUser>(
       type: String,
       required: true,
       trim: true,
+      minlength: 6,
     },
     role: {
       type: String,
@@ -42,45 +44,54 @@ const UserSchema = new Schema<IUser>(
     ],
   },
   { toJSON: { virtuals: true }, toObject: { virtuals: true } }
-);
+)
 
 UserSchema.virtual('dishes', {
   red: 'Dish',
   localfield: '_id',
   foreignField: 'owner',
   justOne: false,
-});
+})
 
-UserSchema.pre<IUser>('save', async function(next: NextFunction) {
-  const user = this;
-  const salt = await bcrypt.genSalt(8);
+UserSchema.pre<IUser>('save', async function (next: NextFunction) {
+  const user = this
+  const salt = await bcrypt.genSalt(8)
   if (user.isModified('password')) {
-    user.password = await bcrypt.hash(user.password, salt);
+    user.password = await bcrypt.hash(user.password, salt)
   }
 
-  next();
-});
+  next()
+})
 
-UserSchema.methods.generateAuthToken = async function(): Promise<string> {
-  const user = this;
+UserSchema.methods.generateAuthToken = async function (): Promise<string> {
+  const user = this
   const token = jwt.sign({ id: user._id, role: user.role }, 'secret', {
     expiresIn: 60 * 180,
-  });
-  user.tokens = user.tokens.concat({ token });
-  await user.save();
-  return token;
-};
+  })
+  user.tokens = user.tokens.concat({ token })
+  await user.save()
+  return token
+}
 
-UserSchema.methods.comparePassword = async function(
+UserSchema.methods.comparePassword = async function (
   password: string
 ): Promise<boolean> {
-  const user = this;
+  const user = this
 
-  const isMatched = await bcrypt.compare(password, user.password);
+  const isMatched = await bcrypt.compare(password, user.password)
 
-  return isMatched;
-};
+  return isMatched
+}
 
-const User = mongoose.model<IUser>('User', UserSchema);
+// To remove all users store when is removed from db
+UserSchema.pre<IUser>('remove', async function (next: NextFunction) {
+  const user = this
 
-export default User;
+  await Store.findOne({ owner: user._id })
+
+  next()
+})
+
+const User = mongoose.model<IUser>('User', UserSchema)
+
+export default User

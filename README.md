@@ -19,8 +19,11 @@ Admin should add and customize own dished and users should be able to leave revi
 ### users
 
 * /api/users/register = register a new user // **public**
-* /api/users/getme = get user profile // **private**
+* /api/users/me = get user profile // **private** GET
+* /api/users/me = update user profile // **private** PUT
+* /api/users/me = delete user profile // **private** DELETE
 * /api/users/admin = get admin  // **private** **only for admins**
+* /api/users/ = get all users  // **private** **only for admins**
 
 ### auth
 

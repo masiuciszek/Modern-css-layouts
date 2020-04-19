@@ -1,6 +1,6 @@
 /* eslint-disable import/no-unresolved */
-import mongoose, { Schema } from 'mongoose';
-import { IReview } from './Documents';
+import mongoose, { Schema } from 'mongoose'
+import { IReview } from './Documents'
 
 const ReviewSchema = new Schema<IReview>({
   text: {
@@ -12,7 +12,7 @@ const ReviewSchema = new Schema<IReview>({
     ref: 'User',
     required: true,
   },
-  dish: {
+  store: {
     type: Schema.Types.ObjectId,
     ref: 'Dish',
     required: true,
@@ -27,8 +27,8 @@ const ReviewSchema = new Schema<IReview>({
     type: Date,
     default: Date.now,
   },
-});
+})
 
-const Review = mongoose.model<IReview>('Review', ReviewSchema);
+const Review = mongoose.model<IReview>('Review', ReviewSchema)
 
-export default Review;
+export default Review
