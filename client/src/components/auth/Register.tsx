@@ -1,6 +1,9 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-shadow */
 /* eslint-disable @typescript-eslint/no-use-before-define */
 /* eslint-disable import/extensions */
 import * as React from 'react';
+import { connect } from 'react-redux';
 import { AuthWrapper } from './Styled.Auth';
 import {
   Form, FormGroup, FormLabel, Input, ErrorMessage,
@@ -8,21 +11,27 @@ import {
 import useForm from '../../hooks/useForm';
 import { Btn } from '../layout/Buttons';
 import validate from '../../utils/validate';
+import { registerUser } from '../../redux/auth/auth.actions';
+import { IRegisterData } from '../../redux/auth/auth.types';
+
 
 interface Props {
+  registerUser: (formData: IRegisterData) => Promise<void>;
 
 }
 
-const Register: React.FC<Props> = () => {
+const Register: React.FC<Props> = ({ registerUser }) => {
   const {
     handleChange, handleSubmit, formData, errors,
   } = useForm(submit, validate);
 
-  function submit(): void {
-    console.log('register');
-  }
-
   const { email, password, username } = formData;
+
+
+  function submit(): void {
+    const newUser: IRegisterData = { username, email, password };
+    registerUser(newUser);
+  }
 
 
   return (
@@ -76,4 +85,6 @@ const Register: React.FC<Props> = () => {
     </AuthWrapper>
   );
 };
-export default Register;
+
+
+export default connect(null, { registerUser })(Register);

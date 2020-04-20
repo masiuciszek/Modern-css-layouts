@@ -25,11 +25,11 @@ export default (callback: Function, validate: Function) => {
     callback();
 
 
-    // setFormData({
-    //   email: '',
-    //   password: '',
-    //   username: '',
-    // });
+    setFormData({
+      email: '',
+      password: '',
+      username: '',
+    });
   };
 
   React.useEffect(() => {

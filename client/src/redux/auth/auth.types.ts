@@ -17,10 +17,17 @@ export interface IAuthError {
 
 export interface IAuthState{
   isLoading: boolean;
-  auth: IAuth | null;
+  user: IAuth | null;
   token: string | null;
   isLoggedIn: boolean;
   errors: null | Record<string, any>;
+}
+
+
+export interface IRegisterData {
+  username: string;
+  email: string;
+  password: string;
 }
 
 
@@ -30,30 +37,41 @@ export enum AuthActionTypes {
   REGISTER_SUCCESS = 'REGISTER_SUCCESS',
   REGISTER_FAIL = 'REGISTER_FAIL',
   LOGOUT_SUCCESS = 'LOGOUT_SUCCESS',
-  ERROR = 'ERROR',
+  AUTH_ERROR = 'AUTH_ERROR',
+  LOAD_USER = 'LOAD_USER',
+  CLEAR_ERRORS='CLEAR_ERRORS'
 }
 
-interface ILoginSuccessAction {
+export interface ILoginSuccessAction {
   type: AuthActionTypes.LOGIN_SUCCESS;
   payload: IAuth;
 }
 
-interface IRegisterSuccessAction {
+export interface IRegisterSuccessAction {
   type: AuthActionTypes.REGISTER_SUCCESS;
   payload: IAuth;
 }
 
-interface ILogoutSuccessAction {
+export interface ILogoutSuccessAction {
   type: AuthActionTypes.LOGOUT_SUCCESS;
 }
+export interface ILoadUserAction {
+  type: AuthActionTypes.LOAD_USER;
+  payload: IAuth;
+}
 
-interface IErrorAction {
-  type: AuthActionTypes.ERROR;
-  payload: IAuthError;
+export interface IErrorAction {
+  type: AuthActionTypes.AUTH_ERROR | AuthActionTypes.LOGIN_FAIL | AuthActionTypes.REGISTER_FAIL;
+  payload: Record<string, any>;
+}
+export interface IClearErrors {
+  type: AuthActionTypes.CLEAR_ERRORS;
 }
 
 export type AuthTypesReducer =
 ILoginSuccessAction |
-IRegisterSuccessAction|
+IRegisterSuccessAction |
 IErrorAction |
-ILogoutSuccessAction
+ILogoutSuccessAction |
+ILoadUserAction |
+IClearErrors
