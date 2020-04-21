@@ -28,6 +28,7 @@ export default (state: IAuthState = initialState, action: AuthTypesReducer) => {
       return {
         ...state,
         ...action.payload,
+        // user: action.payload,
         isLoggedIn: true,
         loading: false,
       };

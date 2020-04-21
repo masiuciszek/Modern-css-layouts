@@ -30,6 +30,7 @@ export const registerUser = asyncHandler(
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     const user = await User.create(req.body)
     const token = await user.generateAuthToken()
+
     res
       .status(201)
       .json({ success: true, msg: 'user created', data: user, token })
@@ -72,7 +73,7 @@ export const getMe = asyncHandler(
     res: Response,
     next: NextFunction
   ): Promise<void> => {
-    const loggedInUser = req.user
+    const loggedInUser = await User.findById(req.user.id).select('-password')
 
     res.status(200).json({ success: true, data: loggedInUser })
   }

@@ -6,6 +6,7 @@ export interface IAuth{
   username: string;
   email: string;
   password: string;
+  tokens: string[];
   created_at: Date;
 }
 
@@ -17,7 +18,7 @@ export interface IAuthError {
 
 export interface IAuthState{
   isLoading: boolean;
-  user: IAuth | null;
+  user: IAuth | null | IRegisterData;
   token: string | null;
   isLoggedIn: boolean;
   errors: null | Record<string, any>;
@@ -49,7 +50,7 @@ export interface ILoginSuccessAction {
 
 export interface IRegisterSuccessAction {
   type: AuthActionTypes.REGISTER_SUCCESS;
-  payload: IAuth;
+  payload: IAuth ;
 }
 
 export interface ILogoutSuccessAction {

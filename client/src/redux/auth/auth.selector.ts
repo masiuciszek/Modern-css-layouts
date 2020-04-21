@@ -10,3 +10,7 @@ export const selectAuthLoading = createSelector(
   [authState],
   (state: IAuthState) => state.isLoading,
 );
+export const selectIsLoggedIn = createSelector(
+  [authState],
+  (state: IAuthState) => state.isLoggedIn,
+);

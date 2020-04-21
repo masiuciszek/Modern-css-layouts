@@ -22,20 +22,18 @@ export default (callback: Function, validate: Function) => {
     setErrors(validate(formData));
 
     setIsSubmitting(true);
-    callback();
-
-
-    setFormData({
-      email: '',
-      password: '',
-      username: '',
-    });
   };
 
   React.useEffect(() => {
-    if (Object.keys(errors).length === 0 && isSubmitting) {
+    if (Object.values(errors).length === 0 && isSubmitting) {
       callback();
+      setFormData({
+        email: '',
+        password: '',
+        username: '',
+      });
     }
+    // eslint-disable-next-line
   }, [errors]);
 
 

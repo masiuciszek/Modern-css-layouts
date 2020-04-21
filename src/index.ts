@@ -1,5 +1,6 @@
 /* eslint-disable import/no-unresolved */
 import express, { Application } from 'express'
+import cors from 'cors'
 import morgan from 'morgan'
 import { router as authRouter } from './routes/auth.routes'
 import { router as userRouter } from './routes/user.router'
@@ -11,6 +12,7 @@ import { errorHandler } from './middleware/errorHandler'
 
 const app: Application = express()
 const port = process.env.PORT || 5000
+app.use(cors())
 connectDb()
 app.use(express.json())
 app.use(morgan('dev'))
