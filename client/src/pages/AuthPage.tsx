@@ -1,9 +1,8 @@
 /* eslint-disable import/extensions */
 import * as React from 'react';
 import { TwoColGrid } from '../components/layout/Wrapper';
-// import Login from '../components/auth/Login';
-// import Register from '../components/auth/Register';
 import Title from '../components/layout/title/Title';
+import Spinner from '../components/styled/Spinner';
 
 
 const Login = React.lazy(() => import('../components/auth/Login'));
@@ -15,7 +14,7 @@ interface Props {
 const AuthPage: React.FC<Props> = () => (
   <>
     <Title title="Login or Register" />
-    <React.Suspense fallback={<h3>...Loading</h3>}>
+    <React.Suspense fallback={<Spinner />}>
       <TwoColGrid>
         <Login />
         <Register />
