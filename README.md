@@ -5,7 +5,7 @@
 * [About](#about)
 * [Usage](#usage)
 * [Thanks to](#thanks)
-* [Contributing](../CONTRIBUTING.md)
+* [Specificity](#specificity)
 
 ## About <a name = "about"></a>
 
@@ -25,7 +25,7 @@ A step by step series of examples that tell you how to get a development env run
 
 Node >= 8.0 is required to install all the packages
 
-**If you want to use the html boilerplate code, and live server**
+**If you want to use the html boilerplate code, and live server!! ⛳️**
 
 ``` bash
   git clone <project URL>
@@ -39,6 +39,23 @@ Node >= 8.0 is required to install all the packages
 ## Usage <a name = "usage"></a>
 
 Hope there is something that will help you in your daily code base or even if you may want to change something , **Just do it**! λ⚛️🥙
+
+## Specificity <a name = "specificity"></a>
+
+``` css
+/* Least to Most */
+
+/* h1, div */
+/* Class, attribute, [type="input"] */
+
+/* IDs */
+/* !important - don't ever use */
+
+/* More specific based on load order */
+/* h1 {
+  font-size: 1rem;
+}
+```
 
 ## Thanks to <a name = "thanks"></a>
 
