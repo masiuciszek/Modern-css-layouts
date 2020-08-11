@@ -5,8 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>themes</title>
     <link rel="stylesheet" href="./noramlize.css" />
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <h1>Css themes</h1>
+    <h1 id="main-title">Css themes</h1>
+
+    <section class="themes-options">
+      <label class="radio">
+        <span class="radio__input">
+          <input type="radio" name="radio" id="dark" />
+          <span class="radio__control"></span>
+        </span>
+        <span class="radio__label">Dark</span>
+      </label>
+
+      <label class="radio">
+        <span class="radio__input">
+          <input type="radio" name="radio" id="light" />
+          <span class="radio__control"></span>
+        </span>
+        <span class="radio__label">Light</span>
+      </label>
+
+      <label class="radio">
+        <span class="radio__input">
+          <input type="radio" name="radio" id="eighties" />
+          <span class="radio__control"></span>
+        </span>
+        <span class="radio__label">80's century</span>
+      </label>
+    </section>
+
+    <script src="./app.js"></script>
   </body>
 </html>
