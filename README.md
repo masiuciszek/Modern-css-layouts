@@ -2,10 +2,10 @@
 
 ## Table of Contents
 
-* [About](#about)
-* [Usage](#usage)
-* [Thanks to](#thanks)
-* [Specificity](#specificity)
+- [About](#about)
+- [Usage](#usage)
+- [Thanks to](#thanks)
+- [Specificity](#specificity)
 
 ## About <a name = "about"></a>
 
@@ -14,11 +14,11 @@ Different components that can be reused in other applications, with just easily 
 
 #### Project includes
 
-* css variable
-* fonts
-* Specificity
-* variable scoping
-* theme toggle with vanilla js and *no* css compiler.
+- css variable
+- fonts
+- Specificity
+- variable scoping
+- theme toggle with vanilla js and _no_ css compiler.
 
 ### Installing ⚙️🦖
 
@@ -26,12 +26,12 @@ A step by step series of examples that tell you how to get a development env run
 
 Node >= 8.0 is required to install all the packages
 
-**If you want to use the html boilerplate code, and live server!! ⛳️**
+**If you want to use the html boilerplate inside the MAIN folder , and live server!! ⛳️**
 
-``` bash
+```bash
   git clone <project URL>
 
-  cd into <project>
+  cd into <main>
 
   yarn/npm install <project>
 
@@ -43,7 +43,7 @@ Hope there is something that will help you in your daily code base or even if yo
 
 ## Specificity <a name = "specificity"></a>
 
-``` css
+```css
 /* Least to Most */
 
 /* h1, div */
@@ -60,7 +60,7 @@ Hope there is something that will help you in your daily code base or even if yo
 
 ## Thanks to <a name = "thanks"></a>
 
-* [Level up Tutorial](https://www.leveluptutorials.com/)
-* [Type Scale](https://type-scale.com/)
-* [Font Pair](https://fontpair.co/)
-* [HTML Boilerplate](https://html5boilerplate.com/)
+- [Level up Tutorial](https://www.leveluptutorials.com/)
+- [Type Scale](https://type-scale.com/)
+- [Font Pair](https://fontpair.co/)
+- [HTML Boilerplate](https://html5boilerplate.com/)
