@@ -9,7 +9,7 @@
 
 ## About <a name = "about"></a>
 
-Modern css designs and layouts. How to handle modern layout, new features in css like variables , functions.
+Modern css designs and layouts. How to handle and structure modern layouts, new features in css like variables , functions , etc.
 Different components that can be reused in other applications, with just easily changing the variables value.
 
 #### Project includes
@@ -18,6 +18,8 @@ Different components that can be reused in other applications, with just easily 
 * fonts
 * Specificity
 * variable scoping
+* Elevations(shadows)
+* Media Queries
 * theme toggle with vanilla js and _no_ css compiler.
 
 ### Installing ⚙️🦖
@@ -62,3 +64,4 @@ Hope there is something that will help you in your daily code base or even if yo
 * [Type Scale](https://type-scale.com/)
 * [Font Pair](https://fontpair.co/)
 * [HTML Boilerplate](https://html5boilerplate.com/)
+* [TailwindCss](https://tailwindcss.com/)
