@@ -9,7 +9,8 @@
 
 ## About <a name = "about"></a>
 
-Modern css designs and layouts. How to handle modern layout, new features in css like variables and different functions.
+Modern css designs and layouts. How to handle modern layout, new features in css like variables , functions.
+Different components that can be reused in other applications, with just easily changing the variables value.
 
 #### Project includes
 
