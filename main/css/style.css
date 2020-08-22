@@ -56,6 +56,9 @@
 
   /* Utils */
   --border-radius: 4px;
+
+  /* transitions */
+  --main-trans: 300ms ease-in all;
 }
 
 /* FROM Type Scale */
@@ -211,7 +214,7 @@ hr {
 
 button {
   --buttonColor: var(--primary);
-
+  transition: var(--main-trans);
   appearance: none;
   color: var(--textColor);
   background-color: var(--buttonColor);
@@ -284,6 +287,12 @@ button.small {
   padding: 0.1em;
   box-shadow: var(--shadowLg);
   border-radius: var(--border-radius);
+  transform: rotate(-0.4deg);
+  display: inline-block;
+  transition: var(--main-trans);
+}
+.card .cta p span:hover {
+  transform: rotate(0);
 }
 
 .card .followers {
