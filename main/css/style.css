@@ -66,13 +66,13 @@ body {
   font-family: var(--bodyFont);
   font-weight: 400;
   line-height: 1.65;
-  padding-bottom: 300px;
+  /* padding-bottom: 300px; */
   background: var(--background);
   color: var(--textColor);
 }
 
 header {
-  background: var(--darkBlue);
+  background: var(--black);
   color: var(--white);
   box-shadow: var(--shadowMd);
   padding: 0 var(--containerPadding);
@@ -286,4 +286,43 @@ input[type="radio"]:checked + label {
 .layout {
   /* top padding header height + whatever visual padding we want */
   padding: calc(3rem + var(--headerHeight)) var(--containerPadding);
+}
+
+footer {
+  color: var(--white);
+  background: var(--black);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.footer__title {
+  padding: 0;
+  margin: 0;
+}
+
+footer ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+footer ul li {
+  margin: 0.2rem;
+}
+
+footer ul li a {
+  color: var(--white);
+  border-bottom: 2px solid var(--white);
+}
+
+ul,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
 }
