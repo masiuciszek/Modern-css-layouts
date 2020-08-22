@@ -6,6 +6,7 @@
   --red: #ff5470;
   --yellow: #fde24f;
   --black: #1b2d45;
+  --blackTransparent: rgba(27, 45, 69, 0.4);
   --white: #feffff;
   --darkBlue: #00214d;
   --grey: #bfbfbf;
@@ -52,6 +53,9 @@
   /* positioning */
   --containerPadding: 2.5%;
   --headerHeight: 3rem;
+
+  /* Utils */
+  --border-radius: 4px;
 }
 
 /* FROM Type Scale */
@@ -86,6 +90,7 @@ header {
   left: 0;
   width: 100%;
   margin-bottom: calc(12rem + 2px);
+  z-index: 2;
 }
 
 header .logo {
@@ -235,6 +240,65 @@ button.small {
   font-size: var(--smallText);
 }
 
+/* CARD */
+
+.card {
+  box-shadow: var(--shadowLg);
+  min-height: 25em;
+  border-radius: var(--border-radius);
+  position: relative;
+  margin: 2rem 0;
+}
+
+.card-img {
+  background: url(https://images.pexels.com/photos/1485894/pexels-photo-1485894.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)
+    center center no-repeat;
+  height: 14em;
+}
+
+.card-title {
+  background: var(--blackTransparent);
+  color: var(--white);
+  position: absolute;
+  top: 8rem;
+  left: 0;
+  width: 65%;
+  border-radius: var(--border-radius);
+  padding-left: 2em;
+  box-shadow: var(--shadowS);
+}
+
+.card .cta {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  grid-template-rows: auto;
+  justify-items: center;
+  align-items: center;
+}
+
+.card .cta p span {
+  background: var(--green);
+  text-shadow: 1px 1px 1px var(--black);
+  color: var(--white);
+  padding: 0.1em;
+  box-shadow: var(--shadowLg);
+  border-radius: var(--border-radius);
+}
+
+.card .followers {
+  padding: 0.5em 1em;
+  margin-left: auto;
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+.card .followers small + small {
+  margin-left: 0.5em;
+}
+
+/* END OF CARD */
+
 form {
   max-width: 40rem;
   margin: 2rem auto;
@@ -285,6 +349,8 @@ input[type="radio"]:checked + label {
 }
 
 .layout {
+  max-width: 970px;
+  margin: 0 auto;
   /* top padding header height + whatever visual padding we want */
   padding: calc(3rem + var(--headerHeight)) var(--containerPadding);
 }
@@ -299,7 +365,7 @@ footer {
   padding: 0;
 }
 
-.footer__title {
+.footer_title {
   padding: 0.5em 0;
   margin: 0;
 }
