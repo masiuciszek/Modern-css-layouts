@@ -1,11 +1,13 @@
-# Css Designs 👩🏻‍🎨🎨
+<h1>
+  <a href="https://marcell-css-layout.netlify.app/"> Css Design Systems 👩🏻‍🎨🎨 </a>
+</h1>
 
 ## Table of Contents
 
-* [About](#about)
-* [Usage](#usage)
-* [Thanks to](#thanks)
-* [Specificity](#specificity)
+- [About](#about)
+- [Usage](#usage)
+- [Thanks to](#thanks)
+- [Specificity](#specificity)
 
 ## About <a name = "about"></a>
 
@@ -14,28 +16,13 @@ Different components that can be reused in other applications, with just easily 
 
 #### Project includes
 
-* css variable
-* fonts
-* Specificity
-* variable scoping
-* Elevations(shadows)
-* Media Queries
-* theme toggle with vanilla js and _no_ css compiler.
-
-### Installing ⚙️🦖
-
-A step by step series of examples that tell you how to get a development env running.
-
-Node >= 8.0 is required to install all the packages
-
-``` bash
-  git clone <project URL>
-
-  cd into <main>
-
-  yarn/npm install <project>
-
-```
+- css variable
+- fonts
+- Specificity
+- variable scoping
+- Elevations(shadows)
+- Media Queries
+- theme toggle with vanilla js and _no_ css compiler.
 
 ## Usage <a name = "usage"></a>
 
@@ -43,7 +30,7 @@ Hope there is something that will help you in your daily code base or even if yo
 
 ## Specificity <a name = "specificity"></a>
 
-``` css
+```css
 /* Least to Most */
 
 /* h1, div */
@@ -60,8 +47,8 @@ Hope there is something that will help you in your daily code base or even if yo
 
 ## Thanks to <a name = "thanks"></a>
 
-* [Level up Tutorial](https://www.leveluptutorials.com/)
-* [Type Scale](https://type-scale.com/)
-* [Font Pair](https://fontpair.co/)
-* [HTML Boilerplate](https://html5boilerplate.com/)
-* [TailwindCss](https://tailwindcss.com/)
+- [Level up Tutorial](https://www.leveluptutorials.com/)
+- [Type Scale](https://type-scale.com/)
+- [Font Pair](https://fontpair.co/)
+- [HTML Boilerplate](https://html5boilerplate.com/)
+- [TailwindCss](https://tailwindcss.com/)
