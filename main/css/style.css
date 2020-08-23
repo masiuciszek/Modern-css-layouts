@@ -19,8 +19,11 @@
   --primary: var(--green);
   --danger: var(--red);
   --background: var(--lightGrey);
+  --headerAndFooterBg: var(--black);
+  --headerAndFooterColor: var(--white);
   --textColor: var(--black);
   --lineColor: var(--grey);
+  --border-left-color: var(--black);
 
   /* Styles */
   --line: solid 1px var(--lineColor);
@@ -80,8 +83,8 @@ body {
 }
 
 header {
-  background: var(--black);
-  color: var(--white);
+  background: var(--headerAndFooterBg);
+  color: var(--headerAndFooterColor);
   box-shadow: var(--shadowMd);
   padding: 0 var(--containerPadding);
   height: var(--headerHeight);
@@ -109,7 +112,7 @@ header nav ul {
 header nav ul li {
 }
 header nav ul li a {
-  color: var(--white);
+  color: var(--headerAndFooterColor);
   text-decoration: none;
   font-size: 0.9em;
 }
@@ -125,14 +128,15 @@ p {
 
 p a,
 blockquote a {
-  color: var(--black);
+  color: var(--textColor);
   text-decoration: none;
   border-bottom: solid 3px var(--primary);
 }
 
 blockquote {
-  border-left: 4px solid var(--black);
+  border-left: 4px solid var(--border-left-color);
   max-width: 45em;
+  color: var(--black);
 }
 
 h1,
@@ -170,11 +174,6 @@ h5 {
 small,
 .text_small {
   font-size: var(--smallText);
-}
-
-.dark {
-  --background: var(--black);
-  --textColor: var(--lightGrey);
 }
 
 blockquote {
@@ -306,6 +305,24 @@ button.small {
   margin-left: 0.5em;
 }
 
+@media (max-width: 760px) {
+  .card .cta {
+    display: flex;
+    flex-direction: column;
+  }
+  .card .cta p {
+    padding: 1.5rem 0;
+  }
+  .card .cta .btn button {
+    width: 14em;
+  }
+}
+@media (max-width: 400px) {
+  .card .cta p {
+    margin-top: 2rem;
+  }
+}
+
 /* END OF CARD */
 
 form {
@@ -365,8 +382,8 @@ input[type="radio"]:checked + label {
 }
 
 footer {
-  color: var(--white);
-  background: var(--black);
+  color: var(--headerAndFooterColor);
+  background: var(--headerAndFooterBg);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -391,7 +408,7 @@ footer ul li {
 }
 
 footer ul li a {
-  color: var(--white);
+  color: var(--headerAndFooterColor);
   border-bottom: 2px solid var(--white);
 }
 
@@ -401,4 +418,16 @@ li {
 }
 a {
   text-decoration: none;
+}
+
+.dark-mode {
+  --background: var(--black);
+  --textColor: var(--white);
+  --headerAndFooterBg: var(--lightGrey);
+  --headerAndFooterColor: var(--black);
+  --border-left-color: var(--green);
+}
+
+.dark-light-toggle {
+  cursor: pointer;
 }
