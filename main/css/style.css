@@ -428,6 +428,14 @@ a {
   --border-left-color: var(--green);
 }
 
+.light-mode {
+  --background: var(--white);
+  --textColor: var(--black);
+  --headerAndFooterBg: var(--black);
+  --headerAndFooterColor: var(--white);
+  --border-left-color: var(--black);
+}
+
 .dark-light-toggle {
   cursor: pointer;
 }

@@ -1,47 +1,42 @@
 (() => {
   window.scroll({
-    top: 1200,
+    top: 10,
     left: 0,
     behavior: "smooth",
   });
   const themeToggler = document.querySelector(".dark-light-toggle");
 
-  function start() {
-    let storageTheme = getCurrentTheme();
-    if (storageTheme) {
-      setNewTheme("theme", setNewTheme);
-      window.document.body.className = storageTheme;
+  const start = () => {
+    let currentTheme = getTheme();
+    console.log(currentTheme);
+    if (currentTheme) {
+      document.body.className = currentTheme;
     }
+  };
+
+  function getTheme() {
+    return window.localStorage.getItem("theme");
   }
 
-  function handleTheme() {
-    if (window.document.body.classList.contains("dark-mode")) {
-      themeToggler.innerHTML = `<span>Light</span>`;
-      // setNewTheme("dark-theme");
-      // return "dark";
-    } else if (window.document.body.classList.contains("light-mode")) {
-      themeToggler.innerHTML = `<span>Dark</span>`;
-      // setNewTheme("light-theme");
-      // return "light";
-    }
-  }
-
-  function getCurrentTheme(key) {
-    return window.localStorage.getItem(key);
-  }
-
-  function setNewTheme(value) {
-    window.localStorage.setItem("theme", value);
+  function setTheme(themeValue) {
+    window.localStorage.setItem("theme", themeValue);
   }
 
   themeToggler.addEventListener("click", () => {
-    if (document.body.className === "dark-mode") {
-      setNewTheme("light-theme");
+    if (document.body.classList.length === 0) {
+      setTheme("dark-mode");
+    } else if (document.body.className === "dark-mode") {
+      setTheme("light-mode");
+      themeToggler.textContent = "Dark Mode";
     } else if (document.body.className === "light-mode") {
-      setNewTheme("dark-theme");
+      setTheme("dark-mode");
+      themeToggler.textContent = "Light Mode";
     }
+    start();
   });
 
-  handleTheme();
   start();
 })();
+
+// if(document.body.classList)
+// document.body.className = "dark-mode";
